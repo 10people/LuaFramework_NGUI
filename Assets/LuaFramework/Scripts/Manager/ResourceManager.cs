@@ -8,7 +8,7 @@ namespace LuaFramework {
         private AssetBundle shared;
 
         /// <summary>
-        /// 初始化
+        /// 鲁玫脢录禄炉
         /// </summary>
         public void initialize(Action func) {
             if (AppConst.ExampleMode) {
@@ -16,27 +16,27 @@ namespace LuaFramework {
                 string uri = Util.DataPath + "shared" + AppConst.ExtName;
                 Debug.LogWarning("LoadFile::>> " + uri);
 
-                shared = AssetBundle.CreateFromFile(uri);
+                shared = AssetBundle.LoadFromFile(uri);
 #if UNITY_5
                 shared.LoadAsset("Dialog", typeof(GameObject));
 #else
                 shared.Load("Dialog", typeof(GameObject));
 #endif
             }
-            if (func != null) func();    //资源初始化完成，回调游戏管理器，执行后续操作 
+            if (func != null) func();    //脳脢脭麓鲁玫脢录禄炉脥锚鲁脡拢卢禄脴碌梅脫脦脧路鹿脺脌铆脝梅拢卢脰麓脨脨潞贸脨酶虏脵脳梅 
         }
 
         /// <summary>
-        /// 载入素材
+        /// 脭脴脠毛脣脴虏脛
         /// </summary>
         public AssetBundle LoadBundle(string name) {
             string uri = Util.DataPath + name.ToLower() + AppConst.ExtName;
-            AssetBundle bundle = AssetBundle.CreateFromFile(uri); //关联数据的素材绑定
+            AssetBundle bundle = AssetBundle.LoadFromFile(uri); //鹿脴脕陋脢媒戮脻碌脛脣脴虏脛掳贸露篓
             return bundle;
         }
 
         /// <summary>
-        /// 销毁资源
+        /// 脧煤禄脵脳脢脭麓
         /// </summary>
         void OnDestroy() {
             if (shared != null) shared.Unload(true);
