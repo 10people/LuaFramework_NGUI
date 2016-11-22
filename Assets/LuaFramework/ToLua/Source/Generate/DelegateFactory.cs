@@ -29,6 +29,26 @@ public static class DelegateFactory
 		dict.Add(typeof(UnityEngine.AudioClip.PCMSetPositionCallback), UnityEngine_AudioClip_PCMSetPositionCallback);
 		dict.Add(typeof(UIPanel.OnGeometryUpdated), UIPanel_OnGeometryUpdated);
 		dict.Add(typeof(UIPanel.OnClippingMoved), UIPanel_OnClippingMoved);
+		dict.Add(typeof(UIScrollView.OnDragNotification), UIScrollView_OnDragNotification);
+		dict.Add(typeof(UIEventListener.VoidDelegate), UIEventListener_VoidDelegate);
+		dict.Add(typeof(UIEventListener.BoolDelegate), UIEventListener_BoolDelegate);
+		dict.Add(typeof(UIEventListener.FloatDelegate), UIEventListener_FloatDelegate);
+		dict.Add(typeof(UIEventListener.VectorDelegate), UIEventListener_VectorDelegate);
+		dict.Add(typeof(UIEventListener.ObjectDelegate), UIEventListener_ObjectDelegate);
+		dict.Add(typeof(UIEventListener.KeyCodeDelegate), UIEventListener_KeyCodeDelegate);
+		dict.Add(typeof(UICamera.GetKeyStateFunc), UICamera_GetKeyStateFunc);
+		dict.Add(typeof(UICamera.GetAxisFunc), UICamera_GetAxisFunc);
+		dict.Add(typeof(UICamera.OnScreenResize), UICamera_OnScreenResize);
+		dict.Add(typeof(UICamera.OnCustomInput), UICamera_OnCustomInput);
+		dict.Add(typeof(UICamera.VoidDelegate), UICamera_VoidDelegate);
+		dict.Add(typeof(UICamera.BoolDelegate), UICamera_BoolDelegate);
+		dict.Add(typeof(UICamera.FloatDelegate), UICamera_FloatDelegate);
+		dict.Add(typeof(UICamera.VectorDelegate), UICamera_VectorDelegate);
+		dict.Add(typeof(UICamera.ObjectDelegate), UICamera_ObjectDelegate);
+		dict.Add(typeof(UICamera.KeyCodeDelegate), UICamera_KeyCodeDelegate);
+		dict.Add(typeof(UICamera.MoveDelegate), UICamera_MoveDelegate);
+		dict.Add(typeof(UICamera.GetTouchCountCallback), UICamera_GetTouchCountCallback);
+		dict.Add(typeof(UICamera.GetTouchCallback), UICamera_GetTouchCallback);
 		dict.Add(typeof(UIWidget.OnDimensionsChanged), UIWidget_OnDimensionsChanged);
 		dict.Add(typeof(UIWidget.OnPostFillCallback), UIWidget_OnPostFillCallback);
 		dict.Add(typeof(UIDrawCall.OnRenderCallback), UIDrawCall_OnRenderCallback);
@@ -716,6 +736,968 @@ public static class DelegateFactory
 		{
 			UIPanel_OnClippingMoved_Event target = new UIPanel_OnClippingMoved_Event(func, self);
 			UIPanel.OnClippingMoved d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UIScrollView_OnDragNotification_Event : LuaDelegate
+	{
+		public UIScrollView_OnDragNotification_Event(LuaFunction func) : base(func) { }
+		public UIScrollView_OnDragNotification_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call()
+		{
+			func.Call();
+		}
+
+		public void CallWithSelf()
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UIScrollView_OnDragNotification(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UIScrollView.OnDragNotification fn = delegate() { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UIScrollView_OnDragNotification_Event target = new UIScrollView_OnDragNotification_Event(func);
+			UIScrollView.OnDragNotification d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UIScrollView_OnDragNotification_Event target = new UIScrollView_OnDragNotification_Event(func, self);
+			UIScrollView.OnDragNotification d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UIEventListener_VoidDelegate_Event : LuaDelegate
+	{
+		public UIEventListener_VoidDelegate_Event(LuaFunction func) : base(func) { }
+		public UIEventListener_VoidDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UIEventListener_VoidDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UIEventListener.VoidDelegate fn = delegate(UnityEngine.GameObject param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UIEventListener_VoidDelegate_Event target = new UIEventListener_VoidDelegate_Event(func);
+			UIEventListener.VoidDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UIEventListener_VoidDelegate_Event target = new UIEventListener_VoidDelegate_Event(func, self);
+			UIEventListener.VoidDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UIEventListener_BoolDelegate_Event : LuaDelegate
+	{
+		public UIEventListener_BoolDelegate_Event(LuaFunction func) : base(func) { }
+		public UIEventListener_BoolDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, bool param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, bool param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UIEventListener_BoolDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UIEventListener.BoolDelegate fn = delegate(UnityEngine.GameObject param0, bool param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UIEventListener_BoolDelegate_Event target = new UIEventListener_BoolDelegate_Event(func);
+			UIEventListener.BoolDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UIEventListener_BoolDelegate_Event target = new UIEventListener_BoolDelegate_Event(func, self);
+			UIEventListener.BoolDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UIEventListener_FloatDelegate_Event : LuaDelegate
+	{
+		public UIEventListener_FloatDelegate_Event(LuaFunction func) : base(func) { }
+		public UIEventListener_FloatDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, float param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, float param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UIEventListener_FloatDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UIEventListener.FloatDelegate fn = delegate(UnityEngine.GameObject param0, float param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UIEventListener_FloatDelegate_Event target = new UIEventListener_FloatDelegate_Event(func);
+			UIEventListener.FloatDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UIEventListener_FloatDelegate_Event target = new UIEventListener_FloatDelegate_Event(func, self);
+			UIEventListener.FloatDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UIEventListener_VectorDelegate_Event : LuaDelegate
+	{
+		public UIEventListener_VectorDelegate_Event(LuaFunction func) : base(func) { }
+		public UIEventListener_VectorDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, UnityEngine.Vector2 param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, UnityEngine.Vector2 param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UIEventListener_VectorDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UIEventListener.VectorDelegate fn = delegate(UnityEngine.GameObject param0, UnityEngine.Vector2 param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UIEventListener_VectorDelegate_Event target = new UIEventListener_VectorDelegate_Event(func);
+			UIEventListener.VectorDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UIEventListener_VectorDelegate_Event target = new UIEventListener_VectorDelegate_Event(func, self);
+			UIEventListener.VectorDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UIEventListener_ObjectDelegate_Event : LuaDelegate
+	{
+		public UIEventListener_ObjectDelegate_Event(LuaFunction func) : base(func) { }
+		public UIEventListener_ObjectDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, UnityEngine.GameObject param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, UnityEngine.GameObject param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UIEventListener_ObjectDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UIEventListener.ObjectDelegate fn = delegate(UnityEngine.GameObject param0, UnityEngine.GameObject param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UIEventListener_ObjectDelegate_Event target = new UIEventListener_ObjectDelegate_Event(func);
+			UIEventListener.ObjectDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UIEventListener_ObjectDelegate_Event target = new UIEventListener_ObjectDelegate_Event(func, self);
+			UIEventListener.ObjectDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UIEventListener_KeyCodeDelegate_Event : LuaDelegate
+	{
+		public UIEventListener_KeyCodeDelegate_Event(LuaFunction func) : base(func) { }
+		public UIEventListener_KeyCodeDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, UnityEngine.KeyCode param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, UnityEngine.KeyCode param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UIEventListener_KeyCodeDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UIEventListener.KeyCodeDelegate fn = delegate(UnityEngine.GameObject param0, UnityEngine.KeyCode param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UIEventListener_KeyCodeDelegate_Event target = new UIEventListener_KeyCodeDelegate_Event(func);
+			UIEventListener.KeyCodeDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UIEventListener_KeyCodeDelegate_Event target = new UIEventListener_KeyCodeDelegate_Event(func, self);
+			UIEventListener.KeyCodeDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_GetKeyStateFunc_Event : LuaDelegate
+	{
+		public UICamera_GetKeyStateFunc_Event(LuaFunction func) : base(func) { }
+		public UICamera_GetKeyStateFunc_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public bool Call(UnityEngine.KeyCode param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			bool ret = func.CheckBoolean();
+			func.EndPCall();
+			return ret;
+		}
+
+		public bool CallWithSelf(UnityEngine.KeyCode param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			bool ret = func.CheckBoolean();
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public static Delegate UICamera_GetKeyStateFunc(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.GetKeyStateFunc fn = delegate(UnityEngine.KeyCode param0) { return false; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_GetKeyStateFunc_Event target = new UICamera_GetKeyStateFunc_Event(func);
+			UICamera.GetKeyStateFunc d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_GetKeyStateFunc_Event target = new UICamera_GetKeyStateFunc_Event(func, self);
+			UICamera.GetKeyStateFunc d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_GetAxisFunc_Event : LuaDelegate
+	{
+		public UICamera_GetAxisFunc_Event(LuaFunction func) : base(func) { }
+		public UICamera_GetAxisFunc_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public float Call(string param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			float ret = (float)func.CheckNumber();
+			func.EndPCall();
+			return ret;
+		}
+
+		public float CallWithSelf(string param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			float ret = (float)func.CheckNumber();
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public static Delegate UICamera_GetAxisFunc(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.GetAxisFunc fn = delegate(string param0) { return 0; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_GetAxisFunc_Event target = new UICamera_GetAxisFunc_Event(func);
+			UICamera.GetAxisFunc d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_GetAxisFunc_Event target = new UICamera_GetAxisFunc_Event(func, self);
+			UICamera.GetAxisFunc d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_OnScreenResize_Event : LuaDelegate
+	{
+		public UICamera_OnScreenResize_Event(LuaFunction func) : base(func) { }
+		public UICamera_OnScreenResize_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call()
+		{
+			func.Call();
+		}
+
+		public void CallWithSelf()
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_OnScreenResize(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.OnScreenResize fn = delegate() { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_OnScreenResize_Event target = new UICamera_OnScreenResize_Event(func);
+			UICamera.OnScreenResize d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_OnScreenResize_Event target = new UICamera_OnScreenResize_Event(func, self);
+			UICamera.OnScreenResize d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_OnCustomInput_Event : LuaDelegate
+	{
+		public UICamera_OnCustomInput_Event(LuaFunction func) : base(func) { }
+		public UICamera_OnCustomInput_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call()
+		{
+			func.Call();
+		}
+
+		public void CallWithSelf()
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_OnCustomInput(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.OnCustomInput fn = delegate() { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_OnCustomInput_Event target = new UICamera_OnCustomInput_Event(func);
+			UICamera.OnCustomInput d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_OnCustomInput_Event target = new UICamera_OnCustomInput_Event(func, self);
+			UICamera.OnCustomInput d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_VoidDelegate_Event : LuaDelegate
+	{
+		public UICamera_VoidDelegate_Event(LuaFunction func) : base(func) { }
+		public UICamera_VoidDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_VoidDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.VoidDelegate fn = delegate(UnityEngine.GameObject param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_VoidDelegate_Event target = new UICamera_VoidDelegate_Event(func);
+			UICamera.VoidDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_VoidDelegate_Event target = new UICamera_VoidDelegate_Event(func, self);
+			UICamera.VoidDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_BoolDelegate_Event : LuaDelegate
+	{
+		public UICamera_BoolDelegate_Event(LuaFunction func) : base(func) { }
+		public UICamera_BoolDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, bool param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, bool param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_BoolDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.BoolDelegate fn = delegate(UnityEngine.GameObject param0, bool param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_BoolDelegate_Event target = new UICamera_BoolDelegate_Event(func);
+			UICamera.BoolDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_BoolDelegate_Event target = new UICamera_BoolDelegate_Event(func, self);
+			UICamera.BoolDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_FloatDelegate_Event : LuaDelegate
+	{
+		public UICamera_FloatDelegate_Event(LuaFunction func) : base(func) { }
+		public UICamera_FloatDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, float param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, float param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_FloatDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.FloatDelegate fn = delegate(UnityEngine.GameObject param0, float param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_FloatDelegate_Event target = new UICamera_FloatDelegate_Event(func);
+			UICamera.FloatDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_FloatDelegate_Event target = new UICamera_FloatDelegate_Event(func, self);
+			UICamera.FloatDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_VectorDelegate_Event : LuaDelegate
+	{
+		public UICamera_VectorDelegate_Event(LuaFunction func) : base(func) { }
+		public UICamera_VectorDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, UnityEngine.Vector2 param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, UnityEngine.Vector2 param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_VectorDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.VectorDelegate fn = delegate(UnityEngine.GameObject param0, UnityEngine.Vector2 param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_VectorDelegate_Event target = new UICamera_VectorDelegate_Event(func);
+			UICamera.VectorDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_VectorDelegate_Event target = new UICamera_VectorDelegate_Event(func, self);
+			UICamera.VectorDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_ObjectDelegate_Event : LuaDelegate
+	{
+		public UICamera_ObjectDelegate_Event(LuaFunction func) : base(func) { }
+		public UICamera_ObjectDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, UnityEngine.GameObject param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, UnityEngine.GameObject param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_ObjectDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.ObjectDelegate fn = delegate(UnityEngine.GameObject param0, UnityEngine.GameObject param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_ObjectDelegate_Event target = new UICamera_ObjectDelegate_Event(func);
+			UICamera.ObjectDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_ObjectDelegate_Event target = new UICamera_ObjectDelegate_Event(func, self);
+			UICamera.ObjectDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_KeyCodeDelegate_Event : LuaDelegate
+	{
+		public UICamera_KeyCodeDelegate_Event(LuaFunction func) : base(func) { }
+		public UICamera_KeyCodeDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.GameObject param0, UnityEngine.KeyCode param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.GameObject param0, UnityEngine.KeyCode param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_KeyCodeDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.KeyCodeDelegate fn = delegate(UnityEngine.GameObject param0, UnityEngine.KeyCode param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_KeyCodeDelegate_Event target = new UICamera_KeyCodeDelegate_Event(func);
+			UICamera.KeyCodeDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_KeyCodeDelegate_Event target = new UICamera_KeyCodeDelegate_Event(func, self);
+			UICamera.KeyCodeDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_MoveDelegate_Event : LuaDelegate
+	{
+		public UICamera_MoveDelegate_Event(LuaFunction func) : base(func) { }
+		public UICamera_MoveDelegate_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UnityEngine.Vector2 param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UnityEngine.Vector2 param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UICamera_MoveDelegate(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.MoveDelegate fn = delegate(UnityEngine.Vector2 param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_MoveDelegate_Event target = new UICamera_MoveDelegate_Event(func);
+			UICamera.MoveDelegate d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_MoveDelegate_Event target = new UICamera_MoveDelegate_Event(func, self);
+			UICamera.MoveDelegate d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_GetTouchCountCallback_Event : LuaDelegate
+	{
+		public UICamera_GetTouchCountCallback_Event(LuaFunction func) : base(func) { }
+		public UICamera_GetTouchCountCallback_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public int Call()
+		{
+			func.BeginPCall();
+			func.PCall();
+			int ret = (int)func.CheckNumber();
+			func.EndPCall();
+			return ret;
+		}
+
+		public int CallWithSelf()
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PCall();
+			int ret = (int)func.CheckNumber();
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public static Delegate UICamera_GetTouchCountCallback(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.GetTouchCountCallback fn = delegate() { return 0; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_GetTouchCountCallback_Event target = new UICamera_GetTouchCountCallback_Event(func);
+			UICamera.GetTouchCountCallback d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_GetTouchCountCallback_Event target = new UICamera_GetTouchCountCallback_Event(func, self);
+			UICamera.GetTouchCountCallback d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UICamera_GetTouchCallback_Event : LuaDelegate
+	{
+		public UICamera_GetTouchCallback_Event(LuaFunction func) : base(func) { }
+		public UICamera_GetTouchCallback_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public UICamera.Touch Call(int param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			UICamera.Touch ret = (UICamera.Touch)func.CheckObject(typeof(UICamera.Touch));
+			func.EndPCall();
+			return ret;
+		}
+
+		public UICamera.Touch CallWithSelf(int param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			UICamera.Touch ret = (UICamera.Touch)func.CheckObject(typeof(UICamera.Touch));
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public static Delegate UICamera_GetTouchCallback(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UICamera.GetTouchCallback fn = delegate(int param0) { return null; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UICamera_GetTouchCallback_Event target = new UICamera_GetTouchCallback_Event(func);
+			UICamera.GetTouchCallback d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UICamera_GetTouchCallback_Event target = new UICamera_GetTouchCallback_Event(func, self);
+			UICamera.GetTouchCallback d = target.CallWithSelf;
 			target.method = d.Method;
 			return d;
 		}

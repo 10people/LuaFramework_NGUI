@@ -113,7 +113,12 @@ namespace LuaFramework {
             if (func != null) {
                 return func.Call(args);
             }
-            return null;
+            else
+            {
+                Debugger.LogWarning("Cannot call lua function {0} not exists", funcName);                
+
+                return null;
+            }
         }
 
         public void LuaGC() {
